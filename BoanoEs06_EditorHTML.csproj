@@ -60,6 +60,7 @@
       <DependentUpon>AboutBoxEditor.cs</DependentUpon>
     </Compile>
     <Compile Include="clsFile.cs" />
+    <Compile Include="clsStampa.cs" />
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
