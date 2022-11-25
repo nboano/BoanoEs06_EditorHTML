@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-//
+﻿//                                                                  💀
 using System.Windows.Forms;
 using System.Drawing;
 using System.Drawing.Printing;
@@ -33,6 +28,8 @@ namespace BoanoEs06_EditorHTML
             prn.DefaultPageSettings.Margins.Top = 100;
             prn.DefaultPageSettings.Margins.Bottom = 100;
 
+            dlgSetup.EnableMetric = true;
+
             #endregion
             #region VARIE
 
@@ -43,6 +40,26 @@ namespace BoanoEs06_EditorHTML
             dlgSetup.Document = prn;
             dlgPrintPreview.Document = prn;
             dlgPrint.Document = prn;
+
+            prn.PrintPage += Prn_PrintPage;
+        }
+        #endregion
+        #region METODI
+        private void Prn_PrintPage(object sender, PrintPageEventArgs e)
+        {
+            // QUESTO METODO VIENE RICHIAMATO ALL'ESECUZIONE DI PRN.PRINT() e ALL'OK SULL'ANTEPRIMA DI STAMPA
+
+            // Oggetto pennello
+            SolidBrush b = new SolidBrush(Color.Black);
+
+            // Coordinate di partenza del testo
+            int x = prn.DefaultPageSettings.Margins.Left;
+            int y = prn.DefaultPageSettings.Margins.Top;
+            int w = prn.DefaultPageSettings.PaperSize.Width;
+            int h = prn.DefaultPageSettings.PaperSize.Height;
+
+            //ESEMPIO disegno un rettangolo
+            Rectangle rec = new Rectangle(x, y, w, h);
         }
         #endregion
     }
