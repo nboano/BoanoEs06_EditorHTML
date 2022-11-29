@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using System.Drawing;
 using System.Drawing.Printing;
+using System;
 
 namespace BoanoEs06_EditorHTML
 {
@@ -44,7 +45,7 @@ namespace BoanoEs06_EditorHTML
             prn.PrintPage += Prn_PrintPage;
         }
         #endregion
-        #region METODI
+        #region METODI PRIVATI
         private void Prn_PrintPage(object sender, PrintPageEventArgs e)
         {
             // QUESTO METODO VIENE RICHIAMATO ALL'ESECUZIONE DI PRN.PRINT() e ALL'OK SULL'ANTEPRIMA DI STAMPA
@@ -60,6 +61,38 @@ namespace BoanoEs06_EditorHTML
 
             //ESEMPIO disegno un rettangolo
             Rectangle rec = new Rectangle(x, y, w, h);
+
+            // METODO CHE ESEGUE FISICAMENTE LA STAMPA
+            // Non disegna il rettangolo, ma lo usa come contanitore per il testo.
+            e.Graphics.DrawString(userText, userFont, b, rec);
+
+            //Pen penna = new Pen(Color.Red, 2);
+            //e.Graphics.DrawRectangle(penna, rec);
+
+            //e.Graphics.Dispose();
+        }
+        #endregion
+        #region METODI PUBBLICI
+        public void ImpostaPagina()
+        {
+            dlgSetup.ShowDialog();
+            // IN CORRISPONDENZA DELL'OK I VALORI IMPOSTATI SARANNO COPIATI IN prn
+        }
+        public void EseguiStampa(string testo, Font carattere)
+        {
+            userText = testo;
+            userFont = carattere;
+
+            // L'utente può decidere se stampare o annullare 😁
+
+            if (dlgPrintPreview.ShowDialog() == DialogResult.OK)
+                prn.Print();
+        }
+        public void Anteprima(string testo, Font carattere)
+        {
+            userText = testo;
+            userFont = carattere;
+            dlgPrintPreview.ShowDialog();
         }
         #endregion
     }

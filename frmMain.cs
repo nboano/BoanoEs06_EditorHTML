@@ -17,6 +17,8 @@ namespace BoanoEs06_EditorHTML
     public partial class frmMain : Form
     {
         FileUT f = new FileUT();
+        Stampa p = new Stampa();
+
         const string DEF_TXT = "<html>\n\t<head>\n\t\t<title>Nuova pagina</title>\n\t</head>\n\t<body>\n\t\t<!-- Inserisci il tuo codice -->\n\t</body>\n</html>";
         public frmMain()
         {
@@ -206,20 +208,10 @@ namespace BoanoEs06_EditorHTML
             Process.Start(f.FileName);
         }
 
-        private void anteprimadistampaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            anteprima.ShowPrintPreviewDialog();
-        }
-
-        private void stampaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            anteprima.ShowPrintDialog();
-        }
-
-        private void stampaToolStripButton_Click(object sender, EventArgs e)
-        {
-            anteprima.ShowPrintDialog();
-        }
+        private void anteprimadistampaToolStripMenuItem_Click(object sender, EventArgs e) => p.Anteprima(txt.Text, txt.Font);
+        private void stampaToolStripMenuItem_Click(object sender, EventArgs e) => p.EseguiStampa(txt.Text, txt.Font);
+        private void stampaToolStripButton_Click(object sender, EventArgs e) => p.EseguiStampa(txt.Text, txt.Font);
         private void selezionatuttoToolStripMenuItem_Click(object sender, EventArgs e) => txt.SelectAll();
+        private void ImpostaPaginatoolStripMenuItem_Click(object sender, EventArgs e) => p.ImpostaPagina();
     }
 }

@@ -40,6 +40,7 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.stampaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.anteprimadistampaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ImpostaPaginatoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.esciToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modificaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -124,6 +125,7 @@
             this.toolStripSeparator1,
             this.stampaToolStripMenuItem,
             this.anteprimadistampaToolStripMenuItem,
+            this.ImpostaPaginatoolStripMenuItem,
             this.toolStripSeparator2,
             this.esciToolStripMenuItem});
             this.fileToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
@@ -197,6 +199,14 @@
             this.anteprimadistampaToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
             this.anteprimadistampaToolStripMenuItem.Text = "&Anteprima di stampa";
             this.anteprimadistampaToolStripMenuItem.Click += new System.EventHandler(this.anteprimadistampaToolStripMenuItem_Click);
+            // 
+            // ImpostaPaginatoolStripMenuItem
+            // 
+            this.ImpostaPaginatoolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("ImpostaPaginatoolStripMenuItem.Image")));
+            this.ImpostaPaginatoolStripMenuItem.Name = "ImpostaPaginatoolStripMenuItem";
+            this.ImpostaPaginatoolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.ImpostaPaginatoolStripMenuItem.Text = "Imposta pagina";
+            this.ImpostaPaginatoolStripMenuItem.Click += new System.EventHandler(this.ImpostaPaginatoolStripMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
@@ -757,6 +767,7 @@
         private System.Windows.Forms.ToolStripMenuItem imgToolStripMenuItem1;
         private System.Windows.Forms.ToolStripButton btnAnteprimaBrowser;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator9;
+        private System.Windows.Forms.ToolStripMenuItem ImpostaPaginatoolStripMenuItem;
     }
 }
 
